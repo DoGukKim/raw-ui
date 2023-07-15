@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { withTV } = require('tailwind-variants/transformer')
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withTV({
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,4 +18,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+})

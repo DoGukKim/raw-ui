@@ -1,0 +1,7 @@
+{
+  "use-client": {
+    "prefix": "uc",
+    "body": "'use client'",
+    "description": "this is for use client in nextjs"
+  }
+}

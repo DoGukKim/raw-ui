@@ -38,4 +38,5 @@ const Portal = ({ children, id }: PortalProps) => {
   return !ref.current || !mounted ? null : createPortal(children, ref.current)
 }
 
-export { Portal, type PortalProps }
+export default Portal
+export type { PortalProps }

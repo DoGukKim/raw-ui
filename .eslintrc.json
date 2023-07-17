@@ -11,19 +11,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "simple-import-sort", "tailwindcss"],
+  "plugins": ["@typescript-eslint", "tailwindcss"],
   "rules": {
     "prefer-const": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      {
-        "prefer": "type-imports",
-        "disallowTypeAnnotations": true,
-        "fixStyle": "inline-type-imports"
-      }
-    ],
     "tailwindcss/classnames-order": "error"
   },
   "settings": {

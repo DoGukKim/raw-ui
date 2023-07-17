@@ -17,12 +17,17 @@ const NODES = [
   'ol',
 ] as const
 
-type PrimitivePropsWithoutRef<E extends React.ElementType> =
-  React.ComponentPropsWithoutRef<E> & {
-    ref?: React.RefObject<
-      HTMLElementTagNameMap[E extends keyof HTMLElementTagNameMap ? E : never]
-    >
-  }
+type PrimitivePropsWithoutRef<E extends React.ElementType> = Omit<
+  React.ComponentPropsWithoutRef<E>,
+  'children'
+> & {
+  // for forwardRef
+  ref?: React.ForwardedRef<
+    HTMLElementTagNameMap[E extends keyof HTMLElementTagNameMap ? E : never]
+  >
+  // for function-as-child pattern
+  children: React.ReactNode | ((props: unknown) => React.ReactNode)
+}
 
 type PrimitiveForwardRefComponent<E extends React.ElementType> =
   React.ForwardRefExoticComponent<PrimitivePropsWithoutRef<E>>

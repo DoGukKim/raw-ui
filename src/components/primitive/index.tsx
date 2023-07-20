@@ -17,7 +17,7 @@ const NODES = [
   'ol',
 ] as const
 
-type PrimitivePropsWithoutRef<E extends React.ElementType> = Omit<
+type PrimitivePropsWithRef<E extends React.ElementType> = Omit<
   React.ComponentPropsWithoutRef<E>,
   'children'
 > & {
@@ -30,7 +30,7 @@ type PrimitivePropsWithoutRef<E extends React.ElementType> = Omit<
 }
 
 type PrimitiveForwardRefComponent<E extends React.ElementType> =
-  React.ForwardRefExoticComponent<PrimitivePropsWithoutRef<E>>
+  React.ForwardRefExoticComponent<PrimitivePropsWithRef<E>>
 
 type Primitives = {
   [E in (typeof NODES)[number]]: PrimitiveForwardRefComponent<E>
@@ -42,7 +42,7 @@ type PrimitiveRef<E extends React.ElementType> =
 const Primitive: Primitives = NODES.reduce((primitive, currentNode) => {
   const node = React.forwardRef(
     <E extends React.ElementType>(
-      props: PrimitivePropsWithoutRef<E>,
+      props: PrimitivePropsWithRef<E>,
       forwardedRef: PrimitiveRef<E>
     ) => {
       const { children } = props

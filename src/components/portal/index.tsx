@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom'
 
 type PortalProps = {
   children: React.ReactNode
-  id: Element['id']
+  id: PortalId
 }
 
 const Portal = ({ children, id }: PortalProps) => {
